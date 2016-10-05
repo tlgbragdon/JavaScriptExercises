@@ -117,13 +117,17 @@
 		var num = document.getElementById("factorialInput").value;
 		var factorial = 1;
 
-		if (isNaN(num) || num <=0) {
+		if (isNaN(num) || num <0) {
 			document.getElementById("factorialOutput").innerHTML = "Not a valid positive number, try again.";
 		}
+		// 0! is special case
 		else {
-			for (var i=Number(num); i>0; i--) {
-				factorial = factorial * i;
-			}
+			if (Number(num) === 0)  { factorial = 1;}  
+			else {
+				for (var i=Number(num); i>0; i--) {
+					factorial = factorial * i;
+				}
+			};
 			document.getElementById("factorialOutput").innerHTML = num + "! = " + factorial;
 		};
 		// clear input

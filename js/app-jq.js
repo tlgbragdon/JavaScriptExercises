@@ -87,13 +87,18 @@
 		var num = $("#factorialInputJQ").val();
 		var factorial = 1;
 
-		if (isNaN(num) || num <=0) {
+		if (isNaN(num) || num <0) {
 			$("#factorialOutputJQ").text("Not a valid positive number, try again.");
 		}
+		// 0! is a special case
 		else {
-			for (var i=Number(num); i>0; i--) {
-				factorial = factorial * i;
-			}
+			if (Number(num) === 0)  
+				{ factorial = 1;}  
+			else {
+				for (var i=Number(num); i>0; i--) {
+					factorial = factorial * i;
+				}
+			};
 			$("#factorialOutputJQ").text(num + "! = " + factorial);
 		};
 		// clear input
