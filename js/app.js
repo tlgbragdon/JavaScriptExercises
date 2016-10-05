@@ -202,3 +202,17 @@
 		document.getElementById("palindrome").value = "";
 	}
 
+	function clearAll() {
+
+		document.getElementById("valuesInput").innerHTML = "";
+		document.getElementById("leastResults").innerHTML = "";
+		document.getElementById("greatestResults").innerHTML = "";
+		document.getElementById("meanResults").innerHTML = "";
+		document.getElementById("sumResults").innerHTML = "";
+		document.getElementById("productResults").innerHTML = "";
+		document.getElementById("factorialOutput").innerHTML = "";
+		document.getElementById("fizzBuzzOutput").innerHTML = "";		   
+		document.getElementById("palindromeOutput").innerHTML = "";
+
+	}
+

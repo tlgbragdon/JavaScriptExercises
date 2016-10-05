@@ -202,7 +202,7 @@ $(document).ready(function(){
 	$('button#fizzBuzzJQ').click (function (event) {
 		event.preventDefault();
 		// remove any data from previous run
-		$("#FizzBuzzOutputJQ").empty();
+		$("#fizzBuzzOutputJQ").empty();
 		fizzBuzzJQ();
 	});
 
@@ -213,6 +213,20 @@ $(document).ready(function(){
 		palindromeJQ();
 	});
 
+	$('button#clearAllJQ').click(function(event) {
+		event.preventDefault();
+
+		$("#valuesInputJQ").empty();
+		$("#leastResultsJQ").empty();
+		$("#greatestResultsJQ").empty();
+		$("#meanResultsJQ").empty();
+		$("#sumResultsJQ").empty();
+		$("#productResultsJQ").empty();
+		$("#factorialOutputJQ").empty();
+		$("#fizzBuzzOutputJQ").empty();
+		$("#palindromeOutputJQ").empty();
+
+	});
 
 
 });
