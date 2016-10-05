@@ -43,7 +43,7 @@
 		    element.removeChild(element.firstChild);
 		};
 		// remove any whitespace from user input
-		inputString.replace(/ /g,'');
+		inputString = inputString.replace(/ /g,'');
 
 		// echo input back to user
 		document.getElementById("valuesInput").innerHTML= "Numbers used for calculations: " + inputString;
@@ -184,6 +184,8 @@
 	/* PALINDROME CODE */
 
 	function checkPalindrome(str) {
+	    // make same case and remove any whitespace from user input
+		str = str.toLowerCase().replace(/ /g,'');
 	  	var len = Math.floor(str.length / 2);
 	  	for (var i = 0; i < len; i++) {
 	       if (str[i] !== str[str.length - i - 1])
@@ -193,7 +195,7 @@
 	}
 
 	function palindrome() {
-		var pString = document.getElementById("palindrome").value.toLowerCase();
+		var pString = document.getElementById("palindrome").value;
 		var outString = "";
 
 		checkPalindrome(pString) ? outString="Yes, "+pString+" is a palindrome!" : outString="No, "+pString+" is not a palindrome."
@@ -214,5 +216,5 @@
 		document.getElementById("fizzBuzzOutput").innerHTML = "";		   
 		document.getElementById("palindromeOutput").innerHTML = "";
 
-	}
+	};
 

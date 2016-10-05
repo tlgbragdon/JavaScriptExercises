@@ -156,6 +156,9 @@
 	/* PALINDROME CODE */
 
 	function checkPalindromeJQ(str) {
+
+		// make same case and remove any whitespace from user input
+		str = str.toLowerCase().replace(/ /g,'');
 	  	var len = Math.floor(str.length / 2);
 	  	for (var i = 0; i < len; i++) {
 	       if (str[i] !== str[str.length - i - 1])
@@ -165,7 +168,7 @@
 	}
 
 	function palindromeJQ() {
-		var pString = $("#palindromeJQ").val().toLowerCase();
+		var pString = $("#palindromeJQ").val();
 		var outString = "";
 
 		checkPalindromeJQ(pString) ? outString="Yes, "+pString+" is a palindrome!" : outString="No, "+pString+" is not a palindrome.";
