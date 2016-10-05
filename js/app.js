@@ -127,7 +127,7 @@
 			document.getElementById("factorialOutput").innerHTML = num + "! = " + factorial;
 		};
 		// clear input
-		document.getElementById("factorialInput").innerHTML = "";
+		document.getElementById("factorialInput").value = "";
 	}
 
 	/**  FIZZ BUZZ CODE **/
@@ -172,6 +172,9 @@
 		}
 		else
 		    document.getElementById("fizzBuzzOutput").innerHTML = "Invalid number for Fizz - must be integer from 1 to 100. Try Again.";
+		// clear input fields
+		document.getElementById("fizzInput").value = "";
+		document.getElementById("buzzInput").value = "";
 	}
 
 	/* PALINDROME CODE */
@@ -191,5 +194,7 @@
 
 		checkPalindrome(pString) ? outString="Yes, "+pString+" is a palindrome!" : outString="No, "+pString+" is not a palindrome."
 		document.getElementById("palindromeOutput").innerHTML = outString;
+		//reset input field
+		document.getElementById("palindrome").value = "";
 	}
 
