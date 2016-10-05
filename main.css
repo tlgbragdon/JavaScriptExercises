@@ -1,0 +1,43 @@
+body {
+	margin: 50px;
+}
+
+h1.mainHeader {
+	font-style: italic;
+	margin: auto;
+	text-align: center;
+}
+
+h1.subheading {
+	background-color: #003380;
+	color:white;
+	padding: 10px; 
+	text-align: center;
+	margin: 10px;
+}
+
+h2 {
+	color:#003d99;
+}
+
+input {
+	padding: 5px;
+
+}
+button {
+	background-color: #003d99;
+	color: white;
+	padding: 5px;
+}
+
+.output {
+	background-color: lightgray;
+	padding: 5px;
+}
+p.intro {
+	font-style: italic;
+}
+
+p#valuesInput, p#valuesInputJQ {
+	font-size: larger;
+}

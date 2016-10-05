@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>Javascript Exercises - JS only version</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div class="container"> 
+	    <div class="row">
+	    <h1 class="mainHeader"> Sample of Javascript Exercises</h1>
+	    	<div class="col-sm-6">
+	    		<div class="row">
+
+				<h1 class="subheading"> Using Javascript-Only </h1>
+
+					<!-- Numbers Exercise  !-->
+					<h2>Numbers</h2>
+					<p class="intro">For any numbers entereded, this example will output the least, greatest, mean, sum, and product.
+					</p>
+					<h3>Enter any number, one at a time.  To end, enter any non-number:</h3>
+					<input id="userInput" type="text" name="number">
+					<button onClick="saveNumber()">Add Number</button>
+
+					<div class="output">
+						<p id="valuesInput"></p>
+						<p id="leastResults"></p>
+						<p id="greatestResults"></p>
+						<p id="meanResults"></p>
+						<p id="sumResults"></p>
+						<p id="productResults"></p>
+					</div>
+
+				<hr>
+
+				<!-- Factorial Exercise !-->
+				<h2>Factorial</h2>
+					<h3>Enter any positive number</h3>
+					<input id="factorialInput" type="text" name="factorialNumber">
+					<button onClick="Factorial()">Factorial</button>
+				<div class="output">
+					<p id="factorialOutput"></p>
+				</div>
+
+				<hr>
+
+				<!--  Fizz Buzz Exercise !-->
+				<h2>Fizz Buzz</h2>
+					<h3>Enter Fizz number (1-100):</h3>
+					<input id="fizzInput" type="text" name="fizzNumber">
+					
+					<h3>Enter Buzz number(1-100):</h3>
+					<input id="buzzInput" type="text" name="buzzNumber">
+					<button onClick="fizzBuzz()">Fizz Buzz</button>
+					<div class="output">
+						<p id="fizzBuzzOutput"></p>
+					</div>
+
+					<hr>
+							<!--  Palindrome Exercise !-->
+				<h2>Palindrome</h2>
+					<h3>Enter any word to check if it is a palindrome</h3>
+					<input id="palindrome" type="text" name="palindrome">
+					
+					<button onClick="palindrome()">Palindrome</button>
+					<div class="output">
+						<p id="palindromeOutput"></p>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="row">
+
+				<h1 class="subheading"> Using Javascript & jQuery </h1>
+
+					<!-- Numbers Exercise  !-->
+					<h2>Numbers</h2>
+					<p class="intro">For any numbers entereded, this example will output the least, greatest, mean, sum, and product.
+					</p>
+					<h3>Enter any number, one at a time.  To end, enter any non-number:</h3>
+					<input id="userInputJQ" type="text" name="number">
+					<button id="numbersJQ">Add Number</button>
+
+					<div class="output">
+						<p id="valuesInputJQ"></p>
+						<p id="leastResultsJQ"></p>
+						<p id="greatestResultsJQ"></p>
+						<p id="meanResultsJQ"></p>
+						<p id="sumResultsJQ"></p>
+						<p id="productResultsJQ"></p>
+					</div>
+
+				<hr>
+
+				<!-- Factorial Exercise !-->
+				<h2>Factorial</h2>
+					<h3>Enter any positive number</h3>
+					<input id="factorialInputJQ" type="text" name="factorialNumber">
+					<button id="factorialJQ">Factorial</button>
+				<div class="output">
+					<p id="factorialOutputJQ"></p>
+				</div>
+
+				<hr>
+
+				<!--  Fizz Buzz Exercise !-->
+				<h2>Fizz Buzz</h2>
+					<h3>Enter Fizz number (1-100):</h3>
+					<input id="fizzInputJQ" type="text" name="fizzNumber">
+					
+					<h3>Enter Buzz number(1-100):</h3>
+					<input id="buzzInputJQ" type="text" name="buzzNumber">
+					<button id="fizzBuzzJQ">Fizz Buzz</button>
+					<div class="output">
+						<p id="fizzBuzzOutputJQ"></p>
+					</div>
+
+					<hr>
+							<!--  Palindrome Exercise !-->
+				<h2>Palindrome</h2>
+					<h3>Enter any word to check if it is a palindrome</h3>
+					<input id="palindromeJQ" type="text" name="palindrome">
+					
+					<button id="palindromeJQ">Palindrome</button>
+					<div class="output">
+						<p id="palindromeOutputJQ"></p>
+					</div>
+
+					</div>
+				
+
+				</div>
+
+	
+	<script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+	<script src="js/app.js" type="text/javascript"></script>
+	<script src="js/app-jq.js" type="text/javascript"></script>
+</body>
+</html>
