@@ -9,54 +9,14 @@
 	var product;
 	var thisNum;
 
-	//get value from user
-	//$('form').submit (function (event) {
-	//	event.preventDefault();
-
 	function saveNumber() {
 
-		var num = document.getElementById("userInput").value;
-		//validate user input - if a valid number, add to list
-		// otherwise output results 	
-		if (num == "" || isNaN(num)) {
-			computeResults();
-			outputResults();
-		}
-		else  { 
-			numbers.push(num);
-		}; 
-
-		// remove the submitted number from the form input
-		document.getElementById("userInput").value = "";
-
-	};
-
-	function computeResults() {
-
-		//initialize each to first entry
-		if (numbers.length) {
-			least = Number(numbers[0]);
-			greatest = Number(numbers[0]);
-			mean = Number(numbers[0]);
-			sum = Number(numbers[0]);
-			product = Number(numbers[0]);
-		}
-
-		for (var i=1; i<numbers.length; i++) {
-			thisNum = Number(numbers[i]);
-			if (least > thisNum) { least = thisNum;} 
-			if (greatest < thisNum) { greatest = thisNum;}
-			sum += thisNum;
-			product = product * thisNum;
-		}
-		mean = sum / numbers.length;
-	}	
-
-	function outputResults() {
+		var inputString = document.getElementById("userInput").value;
 		var element;
-		var output="";
 
 		// remove any data from previous run
+		// I could have just set innerHTML to null, but wanted to
+		// experiement with the child node
 		element = document.getElementById("valuesInput");
 		if (element.firstChild) {
 		    element.removeChild(element.firstChild);
@@ -82,12 +42,54 @@
 		if (element.firstChild) {
 		    element.removeChild(element.firstChild);
 		};
-		// list values that were input
-		output = "Numbers Input:"
+		// remove any whitespace from user input
+		inputString.replace(/ /g,'');
+
+		// echo input back to user
+		document.getElementById("valuesInput").innerHTML= "Numbers used for calculations: " + inputString;
+
+		// clear the user input field
+		document.getElementById("userInput").value = "";
+
+		// split string using delimiter
+		numbers = inputString.split(",");
+
+		// verify they are all numeric & convert to numbers
 		for (var i=0; i<numbers.length; i++) {
-			output += " " + numbers[i];
+			if (isNaN(numbers[i])) {
+				document.getElementById("leastResults").innerHTML = numbers[i] + " is not a valid number, try again.";
+				return;
+			}
+			else {
+				numbers[i] = Number(numbers[i]);
+			};
+		};
+		computeResults();
+		outputResults();
+	};
+
+	function computeResults() {
+
+		//initialize each to first entry
+		if (numbers.length) {
+			least = numbers[0];
+			greatest = numbers[0];
+			mean = numbers[0];
+			sum = numbers[0];
+			product = numbers[0];
 		}
-	 	document.getElementById("valuesInput").innerHTML = output;
+
+		for (var i=1; i<numbers.length; i++) {
+			thisNum = numbers[i];
+			if (least > thisNum) { least = thisNum;} 
+			if (greatest < thisNum) { greatest = thisNum;}
+			sum += thisNum;
+			product = product * thisNum;
+		}
+		mean = sum / numbers.length;
+	}	
+
+	function outputResults() {
 
 	 	// output least
 		document.getElementById("leastResults").innerHTML = "Least: " + least;

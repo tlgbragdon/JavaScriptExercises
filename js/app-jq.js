@@ -10,36 +10,47 @@
 
 
 	function saveNumberJQ() {
-    	var num = $('#userInputJQ').val();
+    	var inputString = $('#userInputJQ').val();
 		
-		//validate user input - if a valid number, add to list
-		// otherwise output results 	
-		if (num == "" || isNaN(num)) {
-			computeResultsJQ();
-			outputResultsJQ();
-		}
-		else  { 
-			jq_numbers.push(num);
-		}; 
+		// remove any whitespace from user input
+		inputString.replace(/ /g,'');
 
-		// remove the submitted number from the form input
+		// echo input back to user
+		$("#valuesInputJQ").text("Numbers used for calculations: " + inputString);
+		
+		// clear the user input field
 		$("#userInputJQ").val("");
 
+		// split string using delimiter
+		jq_numbers = inputString.split(",");
+
+		// verify they are all numeric & convert to numbers
+		for (var i=0; i<jq_numbers.length; i++) {
+			if (isNaN(jq_numbers[i])) {
+				$("#leastResults").text(jq_numbers[i] + " is not a valid number, try again.");
+				return;
+			}
+			else {
+				jq_numbers[i] = Number(jq_numbers[i]);
+			};
+		};
+		computeResultsJQ();
+		outputResultsJQ();
 	};
 
 	function computeResultsJQ() {
 		var thisNum;
 		//initialize each to first entry
 		if (jq_numbers.length >0) {
-			jq_least = Number(jq_numbers[0]);
-			jq_greatest = Number(jq_numbers[0]);
-			jq_mean = Number(jq_numbers[0]);
-			jq_sum = Number(jq_numbers[0]);
-			jq_product = Number(jq_numbers[0]);
+			jq_least = jq_numbers[0];
+			jq_greatest = jq_numbers[0];
+			jq_mean = jq_numbers[0];
+			jq_sum = jq_numbers[0];
+			jq_product = jq_numbers[0];
 		}
 
 		for (var i=1; i<jq_numbers.length; i++) {
-			thisNum = Number(jq_numbers[i]);
+			thisNum = jq_numbers[i];
 			if (jq_least > thisNum) { jq_least = thisNum;} 
 			if (jq_greatest < thisNum) { jq_greatest = thisNum;}
 			jq_sum += thisNum;
@@ -49,12 +60,6 @@
 	}	
 
 	function outputResultsJQ() {
-
-		// list values that were input
-		$("p#valuesInputJQ").text("Numbers Input:");
-		for (var i=0; i<jq_numbers.length; i++) {
-			$("p#valuesInputJQ").append (" " + jq_numbers[i]);
-		}
 	 	
 	 	// output least
 		$("#leastResultsJQ").text("Least: " + jq_least);
