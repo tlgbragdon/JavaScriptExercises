@@ -45,6 +45,11 @@
 		// remove any whitespace from user input
 		inputString = inputString.replace(/ /g,'');
 
+		// verify there is user input
+		if (inputString === "") {
+			$("#leastResults").text("Please enter a valid number, try again.");
+ 			return;
+ 		};
 		// echo input back to user
 		document.getElementById("valuesInput").innerHTML= "Numbers used for calculations: " + inputString;
 
@@ -117,7 +122,7 @@
 		var num = document.getElementById("factorialInput").value;
 		var factorial = 1;
 
-		if (isNaN(num) || num <0) {
+		if (isNaN(num) || (num=="") || num <0) {
 			document.getElementById("factorialOutput").innerHTML = "Not a valid positive number, try again.";
 		}
 		// 0! is special case
@@ -138,7 +143,7 @@
 
 	// if user input is valid (positive int from 1 to 100)
 	function validInput(num) {
-		if (isNaN(num) || (num % 1 != 0) || (num <=0)  || (num > 100)) {
+		if (isNaN(num) || (num=="") || (num % 1 != 0) || (num <=0)  || (num > 100)) {
 			return false;		// Not a Number, or not an int from 1 to 100
 		};
 		return true; 	

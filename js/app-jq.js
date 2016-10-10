@@ -15,11 +15,18 @@
 		// remove any whitespace from user input
 		inputString.replace(/ /g,'');
 
+		// verify there is user input
+		if (inputString === "") {
+			$("#leastResultsJQ").text("Please enter a valid number, try again.");
+ 			return;
+ 		};
+
 		// echo input back to user
 		$("#valuesInputJQ").text("Numbers used for calculations: " + inputString);
 		
 		// clear the user input field
 		$("#userInputJQ").val("");
+
 
 		// split string using delimiter
 		jq_numbers = inputString.split(",");
@@ -87,7 +94,7 @@
 		var num = $("#factorialInputJQ").val();
 		var factorial = 1;
 
-		if (isNaN(num) || num <0) {
+		if (isNaN(num) || (num=="") || num <0) {
 			$("#factorialOutputJQ").text("Not a valid positive number, try again.");
 		}
 		// 0! is a special case
